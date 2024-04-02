@@ -10,7 +10,7 @@ def testui_driver():
     options = Options()
     options.add_argument("disable-user-media-security")
     options.add_argument("--force-device-scale-factor=1")
-    # options.add_argument("--headless")
+    options.add_argument("--headless")
     driver = NewDriver().set_selenium_driver(chrome_options=options)
     driver.navigate_to("https://testdevlab.com")
 
