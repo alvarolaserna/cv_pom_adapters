@@ -4,3 +4,8 @@ logs
 **/__pycache__/**
 .DS_Store
 .idea
+examples/playwrigth-ts/node_modules
+examples/playwrigth-ts/package-lock.json
+examples/playwrigth-ts/cv_pom
+examples/playwrigth-ts/test-results
+examples/playwrigth-ts/playwright-report
