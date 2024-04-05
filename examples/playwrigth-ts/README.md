@@ -8,8 +8,8 @@
     - npx playwright install 
 - Also install all the dependencies for cv_pom and run server:
     - git clone https://github.com/testdevlab/cv_pom.git
+    - cd cv_pom
     - python -m pip install requirements.txt
-    - python server.py --model ../../../resources/best.pt
 
 <pre>
 # Setup virtual environment and activate it
@@ -28,6 +28,12 @@ python -m pip install -r requirements.txt
 First you will have to run the cv_sdk server:
 
 <pre>
-cd cv_sdk/
-python server.py --model ../resources/best.pt
+cd cv_pom/
+python server.py --model ../../../resources/best.pt
+</pre>
+
+in a different terminal run the playwright test:
+
+<pre>
+npx playwright test
 </pre>
