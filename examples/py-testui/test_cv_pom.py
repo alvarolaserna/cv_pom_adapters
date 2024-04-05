@@ -13,6 +13,7 @@ def testui_driver():
     options.add_argument("--headless")
     driver = NewDriver().set_selenium_driver(chrome_options=options)
     driver.navigate_to("https://testdevlab.com")
+    driver.get_driver.set_window_size(2000, 1440)
 
     yield driver
     driver.quit()
@@ -27,15 +28,16 @@ def cv_pom_driver(testui_driver):
 class TestSuite:
     def test_test_for_testdevlab(self, testui_driver: TestUIDriver, cv_pom_driver: CVPOMDriver):
         # Prompt: click in contact us
-        cv_pom_driver.element({"text": "Contact us"}).click()
+        cv_pom_driver.element({"text": {"value": "Contact us", "case_sensitive": False}}).click()
         # Prompt: click on Accept
         cv_pom_driver.element({"text": "Accept"}).click()
         # Prompt: enter random credentials in Full name, Business E-mail and Message
         # Enter random credentials in Full Name
-        cv_pom_driver.element({"text": "Full Name"}).send_keys("John Doe")
+        print(cv_pom_driver.get_page().elements(None))
+        cv_pom_driver.element({"text": {"value": "Full Name", "case_sensitive": False}}).send_keys("John Doe")
 
         # Enter random credentials in Business E-mail
-        cv_pom_driver.element({"text": "Business E-mail"}).send_keys("johndoe@example.com")
+        cv_pom_driver.element({"text": {"value": "Business E-mail", "case_sensitive": False, "contains": True}}).send_keys("johndoe@example.com")
 
         # Enter random credentials in Message
-        cv_pom_driver.element({"text": "Message"}).send_keys("This is a test message")
+        cv_pom_driver.element({"text": {"value": "Message", "case_sensitive": False, "contains": True}}).send_keys("This is a test message")
