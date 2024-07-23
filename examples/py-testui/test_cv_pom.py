@@ -11,6 +11,7 @@ def testui_driver():
     options.add_argument("disable-user-media-security")
     options.add_argument("--force-device-scale-factor=1")
     options.add_argument("--headless")
+    options.page_load_strategy = 'eager'
     driver = NewDriver().set_selenium_driver(chrome_options=options)
     driver.navigate_to("https://testdevlab.com")
     driver.get_driver.set_window_size(2000, 1440)
@@ -27,17 +28,12 @@ def cv_pom_driver(testui_driver):
 
 class TestSuite:
     def test_test_for_testdevlab(self, testui_driver: TestUIDriver, cv_pom_driver: CVPOMDriver):
-        # Prompt: click in contact us
-        cv_pom_driver.element({"text": {"value": "Contact us", "case_sensitive": False}}).click()
-        # Prompt: click on Accept
-        cv_pom_driver.element({"text": "Accept"}).click()
-        # Prompt: enter random credentials in Full name, Business E-mail and Message
-        # Enter random credentials in Full Name
+        page = cv_pom_driver.get_page()
+        page.element({"text": {"value": "Contact us", "case_sensitive": False}}).click()
+        page.element({"text": "Accept"}).click()
         print(cv_pom_driver.get_page().elements(None))
-        cv_pom_driver.element({"text": {"value": "Full Name", "case_sensitive": False}}).send_keys("John Doe")
+        page = cv_pom_driver.get_page()
+        page.element({"text": {"value": "Full Name", "case_sensitive": False}}).send_keys("John Doe")
 
-        # Enter random credentials in Business E-mail
-        cv_pom_driver.element({"text": {"value": "Business E-mail", "case_sensitive": False, "contains": True}}).send_keys("johndoe@example.com")
-
-        # Enter random credentials in Message
-        cv_pom_driver.element({"text": {"value": "Message", "case_sensitive": False, "contains": True}}).send_keys("This is a test message")
+        page.element({"text": {"value": "Business E-mail", "case_sensitive": False, "contains": True}}).send_keys("johndoe@example.com")
+        page.element({"text": {"value": "Message", "case_sensitive": False, "contains": True}}).send_keys("This is a test message")
