@@ -1,6 +1,6 @@
 # Desktop Native
 
-The folder for Python-TestUI is in `examples/py-testui`
+The folder for Desktop Native is in `examples/desktop_native`
 
 Now you can install the requirements:
 ```bash
