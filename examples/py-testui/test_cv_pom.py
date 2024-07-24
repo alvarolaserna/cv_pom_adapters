@@ -14,7 +14,7 @@ def testui_driver():
     options.page_load_strategy = 'eager'
     driver = NewDriver().set_selenium_driver(chrome_options=options)
     driver.navigate_to("https://testdevlab.com")
-    driver.get_driver.set_window_size(2000, 1440)
+    driver.get_driver().set_window_size(2000, 1440)
 
     yield driver
     driver.quit()

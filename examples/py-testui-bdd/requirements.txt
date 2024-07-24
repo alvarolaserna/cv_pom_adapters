@@ -1,0 +1,8 @@
+python-bidi==0.4.2
+python-testui
+behave
+pylint
+allure-behave
+pillow
+ruff
+git+https://github.com/testdevlab/cv_pom@main

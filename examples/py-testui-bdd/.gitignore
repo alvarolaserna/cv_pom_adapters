@@ -1,0 +1,9 @@
+venv/
+.pytest_cache
+*.log
+.idea
+__pycache__/
+artifacts/
+logs/
+*.pt
+.DS_Store

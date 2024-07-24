@@ -9,3 +9,12 @@ examples/playwrigth-ts/package-lock.json
 examples/playwrigth-ts/cv_pom
 examples/playwrigth-ts/test-results
 examples/playwrigth-ts/playwright-report
+examples/playwrigth-ts/reports
+
+examples/py-testui-bdd/venv/
+examples/py-testui-bdd/.pytest_cache
+examples/py-testui-bdd/.idea
+examples/py-testui-bdd/__pycache__/
+examples/py-testui-bdd/artifacts/
+examples/py-testui-bdd/logs/
+examples/py-testui-bdd/*.pt
