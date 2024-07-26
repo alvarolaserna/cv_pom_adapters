@@ -9,6 +9,7 @@ def cv_pom_driver():
     os.system("open -na \"Google Chrome\" --args --incognito \"https://www.testdevlab.com\"")
     driver = DesktopCVPOMDriver("resources/best.pt", **{'ocr': {'paragraph': False, 'canvas_size': 1200}, "resize": 0.5})
     yield driver
+    os.system("osascript -e 'tell application \"Google Chrome\" to close (every window whose mode is \"incognito\")'")
 
 
 class TestSuite:
