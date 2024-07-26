@@ -44,7 +44,7 @@ def before_scenario(context: Context, scenario):
     context.driver = NewDriver().set_logger().set_selenium_driver(chrome_options=options)
     context.driver.navigate_to("https://testdevlab.com")
     # context.driver.get_driver.maximize_window() # Not sure why, but user input is not found in full screen for me
-    context.cv_pom_driver = TestUICVPOMDriver("./resources/best.pt", context.driver)
+    context.cv_pom_driver = TestUICVPOMDriver("../../resources/best.pt", context.driver)
     # Finish chrome config
 
 
